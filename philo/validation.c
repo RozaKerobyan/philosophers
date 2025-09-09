@@ -6,7 +6,7 @@
 /*   By: rkerobya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 18:08:19 by rkerobya          #+#    #+#             */
-/*   Updated: 2025/09/01 14:48:00 by rkerobya         ###   ########.fr       */
+/*   Updated: 2025/09/09 19:04:09 by rkerobya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	check_num(char *s)
 {
 	long	num;
-	int	i;
+	int		i;
 
 	i = 0;
 	if (s[i] == '+')
@@ -57,4 +57,3 @@ int	valid_args(int argc, char *argv[], t_philo *philo)
 	initialize(philo);
 	return (0);
 }
-

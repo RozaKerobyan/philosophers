@@ -6,7 +6,7 @@
 /*   By: rkerobya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 19:28:25 by rkerobya          #+#    #+#             */
-/*   Updated: 2025/08/11 19:28:45 by rkerobya         ###   ########.fr       */
+/*   Updated: 2025/09/09 18:47:10 by rkerobya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	eat_process(t_philo_id *philo)
 {
-	t_philo *table;
+	t_philo	*table;
 
 	table = philo->table;
 	pthread_mutex_lock(&philo->fork);
-	print(philo, 0);	
+	print(philo, 0);
 	if (table->num_philo == 1)
 	{
 		go_time(philo, table->time_die);
@@ -53,9 +53,9 @@ void	*life_process(void	*p)
 	while (!table->dead && !table->full)
 	{
 		eat_process(philo);
-		print(philo, 2); 
+		print(philo, 2);
 		go_time(philo, table->time_sleep);
-		print(philo, 3); 
+		print(philo, 3);
 	}
 	return (NULL);
 }
@@ -70,7 +70,8 @@ void	check_die(t_philo *philo)
 		while (!philo->dead && ++i < philo->num_philo)
 		{
 			pthread_mutex_lock(&philo->check);
-			if (get_time_ms() - philo->philo_id[i].last_meal > (size_t)philo->time_die)
+			if (get_time_ms() - philo->philo_id[i].last_meal
+				> (size_t)philo->time_die)
 			{
 				print(&philo->philo_id[i], 4);
 				philo->dead = 1;
@@ -81,14 +82,15 @@ void	check_die(t_philo *philo)
 		if (philo->dead)
 			break ;
 		i = 0;
-		while (philo->num_eat != -1 && i < philo->num_philo && philo->philo_id[i].num_eat >= philo->num_eat)
+		while (philo->num_eat != -1 && i < philo->num_philo
+			&& philo->philo_id[i].num_eat >= philo->num_eat)
 			i++;
 		if (i == philo->num_philo)
 			philo->full = 1;
 	}
 }
 
-static int	error(void)
+int	error(void)
 {
 	write(2, "Error! invalid arguments\n", 26);
 	return (1);
