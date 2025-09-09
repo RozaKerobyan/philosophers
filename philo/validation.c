@@ -22,7 +22,7 @@ int	check_num(char *s)
 		i++;
 	else if (s[i] == '-')
 		return (0);
-	if (s[i] = '\0')
+	if (s[i] == '\0')
 		return (0);
 	while (s[i])
 	{
@@ -31,7 +31,7 @@ int	check_num(char *s)
 		i++;
 	}
 	num = ft_atoi(s);
-	if (num > 2147483647) // do not forget atoi function to for long
+	if (num > 2147483647)
 		return (0);
 	return (1);
 }
@@ -45,6 +45,7 @@ int	valid_args(int argc, char *argv[], t_philo *philo)
 	{
 		if (!check_num(argv[i]))
 			return (1);
+		i++;
 	}
 	philo->num_philo = ft_atoi(argv[1]);
 	philo->time_die = ft_atoi(argv[2]);
@@ -57,10 +58,3 @@ int	valid_args(int argc, char *argv[], t_philo *philo)
 	return (0);
 }
 
-// here need to check and start eat, sleep validation
-
-
-// here need to write logic that even philosopher quantity equal forks (philosophers == fork)
-
-
-// need to mutex for left and right forks
