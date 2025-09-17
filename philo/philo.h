@@ -24,25 +24,25 @@ typedef struct s_philo_id
 	int			id;
 	int			num_eat;
 	size_t			last_meal;
-	pthread_mutex_t		fork;
-	struct s_philo_id		*before;
-	struct s_philo_id		*next;
-	struct s_philo			*table;
+	//pthread_mutex_t		fork;
+	struct s_philo_id	*before;
+	struct s_philo_id	*next;
+	struct s_philo		*table;
 }	t_philo_id;
 
 typedef struct s_philo
 {
-	int	num_philo;
-	int	time_die;
-	int	time_eat;
-	int	time_sleep;
-	int	num_eat;
-	int	dead;
-	int	full;
-	size_t	start_time;
-	pthread_mutex_t	check;
-	pthread_mutex_t	print;
-	t_philo_id		*philo_id;
+	int		num_philo;
+	int		time_die;
+	int		time_eat;
+	int		time_sleep;
+	int		num_eat;
+	int		dead;
+	int		full;
+	size_t		start_time;
+	//pthread_mutex_t	check;
+	//pthread_mutex_t	print;
+	t_philo_id	*philo_id;
 }	t_philo;
 
 int		ft_atoi(const char *str);
