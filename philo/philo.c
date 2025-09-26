@@ -12,6 +12,12 @@
 
 #include "philo.h"
 
+int	error(void)
+{
+	write(2, "Error! invalid arguments\n", 26);
+	return (1);
+}
+
 int	main(int argc, char *argv[])
 {
 	int			i;

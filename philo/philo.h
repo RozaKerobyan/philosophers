@@ -19,12 +19,18 @@
 # include <pthread.h>
 # include <sys/time.h>
 
+# define FORK 0
+# define EAT  1
+# define SLEEP 2
+# define THINK 3
+# define DIE   4
+
 typedef struct s_philo_id
 {
 	int			id;
 	int			num_eat;
 	size_t			last_meal;
-	//pthread_mutex_t		fork;
+	pthread_mutex_t		fork;
 	struct s_philo_id	*before;
 	struct s_philo_id	*next;
 	struct s_philo		*table;
@@ -40,8 +46,8 @@ typedef struct s_philo
 	int		dead;
 	int		full;
 	size_t		start_time;
-	//pthread_mutex_t	check;
-	//pthread_mutex_t	print;
+	pthread_mutex_t	check;
+	pthread_mutex_t	print;
 	t_philo_id	*philo_id;
 }	t_philo;
 
@@ -52,6 +58,8 @@ size_t	get_time_ms(void);
 int		go_time(t_philo_id *philo, size_t time);
 void	cleanup_philo(t_philo *philo, pthread_t *thread);
 int		valid_args(int argc, char *argv[], t_philo *philo);
-void	print(t_philo_id *philo, int msg_id);
+void	print(t_philo_id *philo, int msg_text);
+void	*life_process(void *p);
+void	check_die(t_philo *philo);
 
 #endif

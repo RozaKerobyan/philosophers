@@ -58,22 +58,22 @@ void	cleanup_philo(t_philo *philo, pthread_t *thread)
 	free(thread);
 }
 
-char	*msg(int msg_id)
+char	*msg(int msg_text)
 {
-	if (msg_id == 0)
+	if (msg_text == FORK)
 		return ("has taken a fork");
-	if (msg_id == 1)
+	if (msg_text == EAT)
 		return ("is eating");
-	if (msg_id == 2)
+	if (msg_text == SLEEP)
 		return ("is sleeping");
-	if (msg_id == 3)
+	if (msg_text == THINK)
 		return ("is thinking");
-	if (msg_id == 4)
+	if (msg_text == DIE)
 		return ("died");
 	return ("Error: invalid message id");
 }
 
-void	print(t_philo_id *philo, int msg_id)
+void	print(t_philo_id *philo, int msg_text)
 {
 	size_t	time;
 
@@ -83,7 +83,7 @@ void	print(t_philo_id *philo, int msg_id)
 	{
 		printf("%ld ", time);
 		printf("%d ", philo->id);
-		printf("%s\n", msg(msg_id));
+		printf("%s\n", msg(msg_text));
 	}
 	pthread_mutex_unlock(&philo->table->print);
 }
