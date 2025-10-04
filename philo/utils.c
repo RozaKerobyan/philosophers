@@ -20,7 +20,7 @@ size_t	get_time_ms(void)
 	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
 }
 
-int	go_time(t_philo_id *philo, size_t time)
+int	go_time(t_philo *philo, size_t time)
 {
 	size_t	start;
 
@@ -36,7 +36,7 @@ int	go_time(t_philo_id *philo, size_t time)
 	return (0);
 }
 
-void	cleanup_philo(t_philo *philo, pthread_t *thread)
+void	cleanup_philo(t_table *philo, pthread_t *thread)
 {
 	int	i;
 
@@ -73,7 +73,7 @@ char	*msg(int msg_text)
 	return ("Error: invalid message id");
 }
 
-void	print(t_philo_id *philo, int msg_text)
+void	print(t_philo *philo, int msg_text)
 {
 	size_t	time;
 

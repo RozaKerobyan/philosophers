@@ -36,7 +36,7 @@ int	check_num(char *s)
 	return (1);
 }
 
-int	valid_args(int argc, char *argv[], t_philo *philo)
+int	valid_args(int argc, char *argv[], t_table *philo)
 {
 	int	i;
 

@@ -21,7 +21,7 @@ int	error(void)
 int	main(int argc, char *argv[])
 {
 	int			i;
-	t_philo		table;
+	t_table		table;
 	pthread_t	*thread;
 
 	if ((argc < 5 || argc > 6) || valid_args(argc, argv, &table))

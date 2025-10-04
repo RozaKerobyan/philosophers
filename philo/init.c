@@ -12,13 +12,13 @@
 
 #include "philo.h"
 
-void	initialize(t_philo *philo)
+void	initialize(t_table *philo)
 {
 	int	i;
 
 	philo->full = 0;
 	philo->dead = 0;
-	philo->philo_id = malloc(philo->num_philo * sizeof(t_philo_id));
+	philo->philo_id = malloc(philo->num_philo * sizeof(t_philo));
 	pthread_mutex_init(&philo->print, NULL);
 	pthread_mutex_init(&philo->check, NULL);
 	i = 0;

@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   process.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rkerobya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/04 17:51:28 by rkerobya          #+#    #+#             */
+/*   Updated: 2025/10/04 17:51:30 by rkerobya         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
-void	eat_process(t_philo_id *philo)
+void	eat_process(t_philo *philo)
 {
-	t_philo	*table;
+	t_table	*table;
 
 	table = philo->table;
 	pthread_mutex_lock(&philo->fork);
@@ -29,10 +41,10 @@ void	eat_process(t_philo_id *philo)
 
 void	*life_process(void *p)
 {
-	t_philo		*table;
-	t_philo_id	*philo;
+	t_table		*table;
+	t_philo		*philo;
 
-	philo = (t_philo_id *)p;
+	philo = (t_philo *)p;
 	table = philo->table;
 	if (philo->id % 2 == 0)
 	{
@@ -48,7 +60,7 @@ void	*life_process(void *p)
 	return (NULL);
 }
 
-int	check_death(t_philo *philo)
+int	check_death(t_table *philo)
 {
 	int	i;
 
@@ -68,7 +80,7 @@ int	check_death(t_philo *philo)
 	return (philo->dead);
 }
 
-int	check_full(t_philo *philo)
+int	check_full(t_table *philo)
 {
 	int	i;
 
@@ -82,7 +94,7 @@ int	check_full(t_philo *philo)
 	return (0);
 }
 
-void	check_die(t_philo *philo)
+void	check_die(t_table *philo)
 {
 	while (!philo->full)
 	{
