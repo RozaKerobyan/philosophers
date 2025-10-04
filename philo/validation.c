@@ -48,6 +48,11 @@ int	valid_args(int argc, char *argv[], t_philo *philo)
 		i++;
 	}
 	philo->num_philo = ft_atoi(argv[1]);
+	if (philo->num_philo > 200)
+	{
+		write(2, "Error: number of philosophers must be <= 200\n", 46);
+		return (1);
+	}
 	philo->time_die = ft_atoi(argv[2]);
 	philo->time_eat = ft_atoi(argv[3]);
 	philo->time_sleep = ft_atoi(argv[4]);

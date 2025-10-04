@@ -33,7 +33,7 @@ int	main(int argc, char *argv[])
 	{
 		if (pthread_create(&thread[i], NULL, &life_process, &table.philo_id[i]))
 		{
-			write(2, "Error! cannot create thread\n", 28);
+			write(2, "Error! can't create thread\n", 28);
 			free(table.philo_id);
 			free(thread);
 			return (1);
