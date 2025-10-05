@@ -6,7 +6,7 @@
 /*   By: rkerobya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 18:08:19 by rkerobya          #+#    #+#             */
-/*   Updated: 2025/09/09 19:04:09 by rkerobya         ###   ########.fr       */
+/*   Updated: 2025/10/05 18:39:34 by rkerobya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	valid_args(int argc, char *argv[], t_table *philo)
 	while (i < argc)
 	{
 		if (!check_num(argv[i]))
-			return (1);
+			return (write(2, "Error! invalid arguments\n", 26), 1);
 		i++;
 	}
 	philo->num_philo = ft_atoi(argv[1]);

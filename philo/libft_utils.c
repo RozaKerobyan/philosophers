@@ -6,7 +6,7 @@
 /*   By: rkerobya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 14:33:16 by rkerobya          #+#    #+#             */
-/*   Updated: 2025/09/09 19:02:57 by rkerobya         ###   ########.fr       */
+/*   Updated: 2025/10/05 18:21:48 by rkerobya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,12 @@ int	ft_isdigit(int c)
 	return (0);
 }
 
-int	ft_strlen(char *str)
+int	ft_isalpha(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
+	if ((c >= 'A' && c <= 'Z')
+		|| (c >= 'a' && c <= 'z'))
 	{
-		i++;
+		return (1);
 	}
-	return (i);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rkerobya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 19:19:10 by rkerobya          #+#    #+#             */
-/*   Updated: 2025/10/04 18:10:53 by rkerobya         ###   ########.fr       */
+/*   Updated: 2025/10/05 18:18:31 by rkerobya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_table
 
 int		ft_atoi(const char *str);
 int		ft_isdigit(int c);
+int		ft_isalpha(int c);
 void	initialize(t_table *philo);
 size_t	get_time_ms(void);
 int		go_time(t_philo *philo, size_t time);
